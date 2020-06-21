@@ -23,7 +23,6 @@ class HelloWorld implements IRoute {
                 res.json({ message: 'Greeted successfully!' });
             }
             catch (error) {
-                console.error(error);
                 res.status(400).json({
                     message: 'Couldn\'t greet.',
                     reason: JSON.stringify(error)

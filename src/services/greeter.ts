@@ -14,7 +14,11 @@ class Greeter {
 
     greet(greet: IGreet) : string {
         if (!(greet.greeting in Greetings)) {
-            throw new Error(`To greet someone, you must say one of the following: ${Greetings}`);
+            throw new Error(`To greet someone, you must say one of the following: ${Object.keys(Greetings).join(',')}`);
+        }
+
+        if (!greet.speaker) {
+            throw new Error(`To greet someone, you must say your name!`);
         }
 
         this.lastGreeting = greet.greeting;
